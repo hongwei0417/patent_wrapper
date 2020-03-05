@@ -97,7 +97,7 @@ def query():
     parser = configparser.ConfigParser()
     parser.read("./query_config.cfg")
     
-    # 總共兩個設定檔
+    # 讀取設定檔
     patent_values = get_config_value(parser, 0)
     
     item_list = list(set(open(os.path.join(patent_values[3], patent_values[2])).read().rstrip('\n').split('\n')))
@@ -119,7 +119,6 @@ def query():
                 ascending=[direction != 'desc' for direction in patent_values[6][1]])
         df.to_csv(output_filename, index=False)
         print('({} rows returned)'.format(len(df)))
-
 
 
 

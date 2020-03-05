@@ -106,7 +106,6 @@ def merge_csv(fd,q,requests):
 def main(fd, q, requests):
     diri = [d for d in os.listdir(fd) if re.search(q+'_\d+.json',d)]
 
-    print(diri)
     for d in diri:
         filename = fd + '/' + d
         data = open(filename, "r").read()
